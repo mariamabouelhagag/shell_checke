@@ -59,7 +59,8 @@ void execute_cmd(char **tokens)
 			execute_writen_path(tokens);
 			full_path = get_full_path_of_command(tokens[0]);
 			execve(full_path, tokens, environ);
-			free (full_path);
+			free(full_path);
+			free_tokens(tokens);
 			printerror();
 			exit(EXIT_FAILURE);
 		}

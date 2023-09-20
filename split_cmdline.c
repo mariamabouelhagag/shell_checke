@@ -28,6 +28,7 @@ char **split_cmd(char *cmd, size_t n)
 		if (tokens == NULL)
 		{
 			printerror();
+			free(cmd);
 			free(line);
 			free(line_copy);
 			exit(EXIT_FAILURE);
@@ -41,6 +42,7 @@ char **split_cmd(char *cmd, size_t n)
 			token = strtok(NULL, delim);
 		}
 		tokens[i] = NULL;
+		free(cmd);
 		free(token);
 		free(line);
 		free(line_copy);
